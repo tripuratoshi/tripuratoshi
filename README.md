@@ -1,16 +1,17 @@
 ### Hi there 👋
+Shortest Path finder
+Set Source Node
+-set source node on the grid
+Set destination Node
+-set source node on the grid
+Select blocks
+-create obstacle on the grid
+Remove blocks
+-Remove obstacle from the grid
+Move Diagonally
+-Search for destination node diagonally on the grid
+Start
+-Search for the destination node
+Reset
+-Reset the grid
 
-<!--
-**tripuratoshi/tripuratoshi** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->

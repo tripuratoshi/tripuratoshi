@@ -104,12 +104,12 @@
                <li>Click on Set Source Node button and set the source Node on the grid</li>
                <li>Click on Set destination Node button and set the destination Node on the grid</li>
                <li>Click on start button to find the shortest path possibke from source to destination</li>
-               <li>Select blocks button implies restriction from moving on that node</li>
-               <li>Remove blocks button  remove the restritcion from that Node</li>
-               <li>Generate Random block button generates random block all over the grid </li>
+               <li>Select blocks button implies obstacle</li>
+               <li>Remove blocks button  remove the obstacle</li>
+               <li>Generate Random block button generates random block(obstacles) all over the grid </li>
                <li>Sources Node search for destination node in both direction</li>
                <li>Move diagonally Button search for destination node diagonally</li>
-               <li>If your source Node can not reach to destination node then there will be a alert box saying there is no path from source to destination node</li>
+               <li>If your source Node can not reach to destination node then there will be a alert, saying there is no path from source node to destination node</li>
            </ol>
         </div>
         <div class="modal-footer">
@@ -398,7 +398,7 @@
         while (true) {
             var pos = [mainarr[0]];
             if (mainarr.length == 0) {
-                window.alert("no ways to reach end point")
+                window.alert("There is no path from Source Node to Destination Node")
             }
             findchild(pos[0]);
             if ((pos[0][0][0] !== s[0] || pos[0][0][1] !== s[1]) && (pos[0][0][0] !== en[0] || pos[0][0][1] !== en[1])) {

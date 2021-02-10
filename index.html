@@ -1,80 +1,114 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <style>
-        body {
-            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="28" height="49" viewBox="0 0 28 49"%3E%3Cg fill-rule="evenodd"%3E%3Cg id="hexagons" fill="%239C92AC" fill-opacity="0.4" fill-rule="nonzero"%3E%3Cpath d="M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
-        }
-        table,
-        th,
-        td {
-            border: 1px solid rgb(17, 16, 16);
-            border-collapse: collapse;
-            padding: 9px;
-        }
-        #mytable {
-            border: 2px solid rgb(10, 0, 0);
-            border-style: solid;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        td:active {
-            background-color: rgb(172, 36, 36);
-        }
-        button {
-            margin-top: 6px;
-            cursor: pointer;
-            letter-spacing: 1px;
-            font-family: Arial, sans-serif;
-            font-size: medium;
-            font-weight: 501;
-            background-color: rgb(255, 255, 255);
-            color: rgb(214, 42, 42);
-            border-radius: 9%;
-            padding: 10px;
-            transition: 1s;
-            border: 1 px solid rgb(5, 5, 5);
-        }
-        button:hover {
-            padding-right: 5px;
-            color: rgb(255, 255, 255);
-            background-color: rgb(42, 45, 46);
-            border-color: white;
-        }
-        #header {
-           display:flex;
-            position: relative;
-            overflow: hidden;
-            background-color: rgb(20, 238, 31);
-            padding-top: 1px;
-            margin: -8px;
-            margin-block-end: -16px;
-            opacity: 70%;
-        } 
-        h1 {
-            opacity: 100%;
-            margin-left: 400px;
-            margin-right: 100px;
-        }
-    </style>
-  </head>
-  <div id="header">
-    <h1>SHORTEST PATH FINDER</h1>
-</div>
-<body style="background-color:rgb(211, 211, 205)">
-    <div style="padding: 20px;text-align:center;float:left;align-items:center">
-        <button onclick="start()">Set Source Node</button>
-        <button onclick="stop()"> Set Destination Node</button>
-        <button onclick="block()">Select blocks</button>
-        <button onclick="ranblock()">Generate random blocks</button>
-        <button onclick="remove()">Remove blocks</button>
-        <button onclick="diagonal()">Move diagonally</button>
-        <button onclick="main()" style="margin-right: 790px">Start</button>
-        <button onclick="reset()">reset</button>
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   
+ 
+  <title>Shortest Path Finder</title>
+  <style>
+      body{
+          background-color: beige;
+      }
+    table,
+    th,
+    td {
+        border: 1px solid rgb(17, 16, 16);
+        border-collapse: collapse;
+        padding: 10px;
+        width: 100%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    #mytable {
+        border: 2px solid rgb(10, 0, 0);
+        border-style: solid;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    td:active {
+        background-color: rgb(172, 36, 36);
+    }
+    button
+    {
+        letter-spacing : 1px;
+        padding: 1px;
+        margin-top: 3px;
+    }
+</style>
+
+
+</head>
+
+<body>
+  <!-- Navvbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="navbar-brand" href="#">Shortest Path Finder</a>
+            </li>
+          </ul>
+        <div class="mx-2">
+          <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#LoginModal">Read Instruction</button>
+        </div>
+      </div>
     </div>
-  </body>
+  </nav>
+<!-- button -->
+<div style="padding: 20px;text-align:center;float:left;align-items:center">
+    <button type="button" class="btn btn-warning" onclick="start()">Set Source Node</button>
+    <button type="button" class="btn btn-warning" onclick="stop()"> Set Destination Node</button>
+    <button type="button" class="btn btn-warning" onclick="block()">Select blocks</button>
+    <button type="button" class="btn btn-warning" onclick="ranblock()">Generate random blocks</button>
+    <button type="button" class="btn btn-warning" onclick="remove()">Remove blocks</button>
+    <button type="button" class="btn btn-warning" onclick="diagonal()">Move diagonally</button>
+    <button type="button" class="btn btn-success" onclick="main()" style="margin-right: 790px">Start</button>
+    <button type="button" class="btn btn-danger" onclick="reset()">Reset</button>
+</div>
+<hr>
+  <!-- Login Modal -->
+  <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="LoginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="LoginModalLabel">Read Instructions</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+           <ol>
+               <li>Click on Set Source Node button and set the source Node on the grid</li>
+               <li>Click on Set destination Node button and set the destination Node on the grid</li>
+               <li>Click on start button to find the shortest path possibke from source to destination</li>
+               <li>Select Node button implies restriction from moving on that node</li>
+               <li>Remove Node button  remove the restritcion from that Node</li>
+               <li>Generate Random block button generates random block all over the grid </li>
+               <li>If your source cannot reach to destination node then there will be a alert box saying there is no path from source to destination node</li>
+           </ol>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
 <!-- javascript code -->
 <script>
     var x = document.createElement("TABLE");
@@ -392,4 +426,21 @@
         }
     }
 </script>
+
+<hr>
+  <footer class="container">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <P>Created by Toshi Tripura</P>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+  integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+  integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+  crossorigin="anonymous"></script>
+
+</body>
 </html>

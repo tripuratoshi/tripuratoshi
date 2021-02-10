@@ -26,7 +26,7 @@
         padding: 10px;
         width: 100%;
         margin-left: 2%;
-        margin-right: 2%;
+        margin-right: 4%;
     }
     #mytable {
         border: 2px solid rgb(10, 0, 0);
@@ -42,6 +42,12 @@
         letter-spacing : 1px;
         padding: 1px;
         margin-top: 3px;
+    }
+    button :hover
+    {
+        padding : 2px;
+        letter-spacing:2px;
+        transition: 1s;
     }
 </style>
 
@@ -98,10 +104,12 @@
                <li>Click on Set Source Node button and set the source Node on the grid</li>
                <li>Click on Set destination Node button and set the destination Node on the grid</li>
                <li>Click on start button to find the shortest path possibke from source to destination</li>
-               <li>Select Node button implies restriction from moving on that node</li>
-               <li>Remove Node button  remove the restritcion from that Node</li>
+               <li>Select blocks button implies restriction from moving on that node</li>
+               <li>Remove blocks button  remove the restritcion from that Node</li>
                <li>Generate Random block button generates random block all over the grid </li>
-               <li>If your source cannot reach to destination node then there will be a alert box saying there is no path from source to destination node</li>
+               <li>Sources Node search for destination node in both direction</li>
+               <li>Move diagonally Button search for destination node diagonally</li>
+               <li>If your source Node can not reach to destination node then there will be a alert box saying there is no path from source to destination node</li>
            </ol>
         </div>
         <div class="modal-footer">
